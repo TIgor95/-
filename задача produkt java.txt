@@ -1,0 +1,51 @@
+public class Produkt {
+    private int nomer;
+    private String nazvanie;
+    private float stoimost;
+ 
+    public Produkt(final int nomer, final String nazvanie, final float stoimost) {
+        this.setNomer(nomer);
+        this.setNazvanie(nazvanie);
+        this.setStoimost(stoimost);
+    }
+ 
+    public int getNomer() {
+        return this.nomer;
+    }
+ 
+    public void setNomer(final int nomer) {
+        this.nomer = nomer;
+    }
+ 
+    public String getNazvanie() {
+        return this.nazvanie;
+    }
+ 
+    public void setNazvanie(final String nazvanie) {
+        this.nazvanie = nazvanie;
+    }
+ 
+    public float getStoimost() {
+        return this.stoimost;
+    }
+ 
+    public void setStoimost(final float stoimost) {
+        this.stoimost = stoimost;
+    }
+ 
+    public void printDetails() {
+        System.out.println(this.getNomer() + " - " + this.getNazvanie() + ": " + getStoimost());
+    }
+ 
+    public static void main(final String[] args) {
+        ArrayList<Produkt> produkty = new ArrayList<>();
+ 
+        produkty.add(new Produkt(1, "Хлеб", 25.30f));
+        produkty.add(new Produkt(2, "Яблоки", 18.75f));
+        produkty.add(new Produkt(3, "Молоко", 25.30f));
+ 
+        for (Produkt produkt : produkty) {
+            produkt.printDetails();
+        }
+    }
+}
