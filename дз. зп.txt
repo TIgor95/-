@@ -1,0 +1,57 @@
+abstract class WorkerBase : IComparable<WorkerBase>
+        {
+            public string Name { get; set; }
+            public decimal Salary { get; set; }
+            public decimal BaseRate { get; set; }
+ 
+            protected WorkerBase(string name, decimal salary, decimal baseRate)
+            {
+                Name = name;
+                Salary = salary;
+                BaseRate = baseRate;
+            }
+ 
+            protected abstract void Calculate();
+ 
+            public int CompareTo(WorkerBase other)
+            {
+                return -Salary.CompareTo(other.Salary);
+            }
+ 
+            public override string ToString()
+            {
+                return string.Format("Name: {0}, Salary: {1}, BaseRate: {2}", Name, Salary, BaseRate);
+            }
+ 
+            
+        }
+ 
+        private class Worker : WorkerBase
+        {
+            public Worker(string name, decimal salary, decimal baseRate) : base(name, salary, baseRate)
+            {
+                Calculate();
+            }
+ 
+            protected override sealed void Calculate()
+            {
+                Salary *= BaseRate;
+            }
+        }
+ 
+ 
+        private static void Main(string[] args)
+        {
+            var list = new List<Worker>
+            {
+                new Worker("Ira", 1000, 1.5m),
+                new Worker("Artem", 1200, 1.6m),
+                new Worker("Gena", 800, 1.2m)
+            };
+ 
+            list.Sort();
+ 
+            foreach (var worker in list)
+            {
+                Console.WriteLine(worker);
+            }

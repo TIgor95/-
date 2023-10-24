@@ -1,0 +1,10 @@
+ Employee terry = new Employee("Terry", 37);
+    Employee kelly = new Employee("Kelly", 26);
+    Employee brett = new Employee("Brett", 32);
+    Employee chris = new Employee("Chris", 26);
+    List<Employee> employeeList = Arrays.asList(terry, kelly, brett, chris);
+    Set<Employee> employeeSet = new TreeSet<>(Comparator.comparingInt(Employee::getAge));
+    employeeSet.addAll(employeeList);
+    System.out.println(employeeSet);
+
+    [Employee{name=Kelly, age=26}, Employee{name=Brett, age=32}, Employee{name=Terry, age=37}]
