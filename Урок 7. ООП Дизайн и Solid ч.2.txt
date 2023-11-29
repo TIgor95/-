@@ -1,0 +1,21 @@
+  JobAgency jobAgency = new JobAgency();
+        Company casio = new Company("Casio", 80000, jobAgency);
+        Company apple = new Company("Apple", 100000, jobAgency);
+        Company lg = new Company("Lg", 120000, jobAgency);
+
+        Master ivanov = new Master("Ivanov");
+        Master petrov = new Master("Petrov");
+        Student sidorov = new Student("Sidorov");
+
+        jobAgency.registerObserver(ivanov);
+        jobAgency.registerObserver(petrov);
+        jobAgency.registerObserver(sidorov);
+
+        for (int i = 0; i < 2; i++){
+            casio.needEmployee();
+            apple.needEmployee();
+            lg.needEmployee();
+            System.out.println();
+        }
+    }
+}
